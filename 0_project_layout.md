@@ -1,16 +1,16 @@
-1. Create Project Folder
+# 1. Create Project Folder
 
 Create a project folder at your local computer to store everything related to your project. Here I use `Project_Folder` as an example.
 
 `mkdir Project_Folder && cd Project_Folder`
 
-2. Create sub-directories
+# 2. Create sub-directories
 
 Add sub-directories into `Project_Folder`. The final layout looks like following:
 
 You are in `Project_Folder` to see this layout.
 ```
-.
+Project_Folder
 └── opt
     └── ml
         ├── code
