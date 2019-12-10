@@ -26,6 +26,9 @@ docker build -t pytorch-base:1.1.0-gpu-py3 -f docker/1.1.0/base/Dockerfile.gpu -
 * Build sagemaker final image:
 
 ```
+pip3 install wheel
+python setup.py bdist_wheel
+
 docker build -t preprod-pytorch:1.1.0-gpu-py3 -f docker/1.1.0/final/Dockerfile.gpu --build-arg py_version=3 .
 ```
 
@@ -40,10 +43,16 @@ Create file `custom-Dockerfile.gpu` and add the following content to file.
 FROM preprod-pytorch:1.1.0-gpu-py3
 
 # Install project-specific dependencies
-RUN pip3 install python-opencv
+RUN pip3 install opencv-python
 
 # Copy the ENTRYPOINT line from the final image Dockderfile
 # Starts framework
 ENTRYPOINT ["bash", "-m", "start_with_right_hostname.sh"]
+```
+
+In `Project_Folder/dockerfiles` run:
+
+```
+docker build -t custom-pytorch:1.1.0-gpu-py3 -f custom-Dockerfile.gpu .
 ```
 
