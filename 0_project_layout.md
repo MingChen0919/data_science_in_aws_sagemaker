@@ -29,13 +29,13 @@ Project_Folder
     └── output
 ```
 
-* Raw data in `./processing/input`
-* Processed data in `./processing/output`
-* Cleaned data for training in `./input/data/training/input`
-* Training output in `./input/data/training/output`
-* Cleaned data for testing in `./input/data/testing/input`
-* Testing output in `./input/data/testing/output`
-* Trained model in `./model`
+* **Raw data** in `./processing/input`
+* **Processed data** in `./processing/output`
+* **Cleaned data** for training in `./input/data/training/input`
+* **Training output** in `./input/data/training/output`
+* **Cleaned data for testing** in `./input/data/testing/input`
+* **Testing output** in `./input/data/testing/output`
+* **Trained model** in `./model`
 
 The goal is to mimic the layout used by AWS Sagemaker
 
