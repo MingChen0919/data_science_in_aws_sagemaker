@@ -17,3 +17,5 @@ pycharm .
 # 2. Mark `./code` as **Source Folders**
 
 Since we will put all your python scripts in the `./code`, we need to tell PyCharm that this is a **Source Folder**. Otherwise PyCharm will have some **Unresolved Reference** issues.
+
+Go to PyCharm **Preferences -> Project Structure**, select the `code` folder, and then cleck **Sources** on the top of the window. 
