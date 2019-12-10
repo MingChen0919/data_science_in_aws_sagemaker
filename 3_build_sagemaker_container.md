@@ -56,3 +56,23 @@ In `Project_Folder/dockerfiles` run:
 docker build -t custom-pytorch:1.1.0-gpu-py3 -f custom-Dockerfile.gpu .
 ```
 
+# 3. Publish Docker image to AWS ECR
+
+## Create an ECR repository: 
+
+* Refer to https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_GetStarted.html
+
+## Register the docker image in ECR
+
+* **Before you start, make sure you have created an `IAM User` for ECR access and add the access key credentials to the `~/.aws/credentials` file in your local computer**. You will also need to install **aws cli**
+
+* **Use **aws cli** to get login information for authenticate Docker to interact with your AWS ECR resource**
+
+  + `aws ecr get-login --region us-east-2 --no-include-email`
+  + the above command will output something like this: `docker login -u AWS -p password https://aws_account_id.dkr.ecr.us-east-1.amazonaws.com`. You run the output as a command to login your Docker
+
+
+
+
+
+
