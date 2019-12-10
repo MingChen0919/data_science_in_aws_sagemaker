@@ -56,7 +56,9 @@ In `Project_Folder/dockerfiles` run:
 docker build -t custom-pytorch:1.1.0-gpu-py3 -f custom-Dockerfile.gpu .
 ```
 
-# 3. Publish Docker image to AWS ECR
+# 3. Publish Docker image to AWS ECR 
+
+(Refeference: https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-basics.html)
 
 ## Create an ECR repository: 
 
