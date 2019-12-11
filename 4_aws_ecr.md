@@ -45,3 +45,25 @@ Now you can push your image to ECR with command:
 ```
 docker push [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/[PROJECT_NAME]:[FEATURE]
 ```
+
+# Other High-Frequent Actions
+
+## Delete a repository
+
+```
+aws2 ecr untag-resource \
+  --repository-name [REPOSITORY_NAME] \
+  --profile [ECR_ACCESS_PROFILE] \
+  --region [REGION]
+  --tag-keys [TAG_NAME] 
+```
+
+## Remove a tag
+
+```
+aws2 ecr untag-resource \
+  --resource-arn arn:aws:ecr:[REGION]:[AWS_ACCOUNT_ID]:repository/[REPOSITORY_NAME] \
+  --profile [ECR_ACCESS_PROFILE] \
+  --region [REGION]
+  --tag-keys [TAG_NAME] 
+```
