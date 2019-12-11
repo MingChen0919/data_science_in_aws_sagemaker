@@ -70,8 +70,13 @@ docker build -t custom-pytorch:1.1.0-gpu-py3 -f custom-Dockerfile.gpu .
 
 * **Use **aws cli** to get login information for authenticate Docker to interact with your AWS ECR resource**
 
-  + `aws ecr get-login --region us-east-2 --no-include-email`
+  + `aws2 ecr get-login --region us-east-2 --no-include-email` --profile ming_ecr
   + the above command will output something like this: `docker login -u AWS -p password https://aws_account_id.dkr.ecr.us-east-1.amazonaws.com`. You run the output as a command to login your Docker
+  
+* **Push docker image to ECR**
+  
+  + Tag the image with ECR RepositoryURI: `docker tag custom-pytorch:1.1.0-gpu-py3 aws_account_id.dkr.ecr.region.amazonaws.com/deep-learning`
+  + Push tagged image: `docker push aws_account_id.dkr.ecr.region.amazonaws.com/deep-learning`
 
 
 
