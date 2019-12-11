@@ -10,6 +10,9 @@ Add sub-directories into `Project_Folder`. The final layout looks like following
 
 ```
 Project_Folder
+├── aws
+│   ├── code
+│   └── docker
 ├── code
 ├── input
 │   ├── config
@@ -36,6 +39,8 @@ Project_Folder
 * **Cleaned data for testing** in `./input/data/testing/input`
 * **Testing output** in `./input/data/testing/output`
 * **Trained model** in `./model`
+* **AWS services interaction code** in `./aws/code`
+* **Dockerfiles for building ECR containers** in `./aws/docker` 
 
 The goal is to mimic the layout used by AWS Sagemaker
 
