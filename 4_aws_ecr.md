@@ -4,7 +4,7 @@
 * Replace **ECR_ACCESS_PROFILE** with your ECR access credentials stored in `~/.aws/credentials`
 
 ```
-aws2 ecr create-repository --repository-name PROJECT_NAME --profile ECR_ACCESS_PROFILE
+aws2 ecr create-repository --repository-name PROJECT_NAME --profile ECR_ACCESS_PROFILE --region REGION_NAME
 ```
 
 # 2. Authenticate Docker to use ECR registry
