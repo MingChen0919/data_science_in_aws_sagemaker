@@ -37,3 +37,11 @@ If you have followed the instruction in the previous section, the image you want
 ```
 docker tag [PROJECT_NAME]:[FEATURE] [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/[PROJECT_NAME]:[FEATURE]
 ```
+
+# 4. Push Image to ECR
+
+Now you can push your image to ECR with command:
+
+```
+docker push [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/[PROJECT_NAME]:[FEATURE]
+```
