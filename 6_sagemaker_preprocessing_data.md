@@ -55,7 +55,7 @@ outputs = [
     ProcessingOutput(
         output_name='annotation.json',
         source='/opt/ml/processing/output',
-        destination=[S3Uri],
+        destination=s3://sagemaker-vqs-sla/preprocessing/output,
     )
 ]
 
@@ -98,3 +98,15 @@ import sys
 sys.path.insert(0, "/opt/ml/processing/code_dependencies")
 ```
 
+
+## `ProcessingOutput`
+
+`ProcessingOutput` maps a local path in the Docker container to a **FOLDER OR FILE** in S3. Your `./code/cli_parse_annotation_files.py` send outputs to `source` (in this case it is `/opt/ml/processing/output`), then sagemaker transfer the data in the Docker container to `destination` in S3 (in this case it is `s3://sagemaker-vqs-sla/preprocessing/output`).
+
+```
+ProcessingOutput(
+        output_name='annotation.json',
+        source='/opt/ml/processing/output',
+        destination=s3://sagemaker-vqs-sla/preprocessing/output,
+    )
+```
