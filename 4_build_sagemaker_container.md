@@ -19,11 +19,12 @@ RUN pip install sagemaker-containers \
     opencv-python \
     torch torchvision
 
-ADD ["code", "/code"]
-WORKDIR /code
-
 ENTRYPOINT ["python3"]
 ```
+
+**We SHOULD NOT copy our code to the Docker image. Otherwise we will need to rebuild the Docker image everytime we update our code.**
+
+**sagemaker run a single command line tool to preprocess data or train model. if the command line tool (python script) depends on other custom python scripts. we can use sagemaker to copy these scripts from S3 to the container.** I will explain this in more details in the sagemaker preprocessing data section.
 
 
 # 2. Create `.dockerignore` file
