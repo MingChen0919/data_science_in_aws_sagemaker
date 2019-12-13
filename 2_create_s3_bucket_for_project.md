@@ -12,4 +12,14 @@ aws2 s3 mb s3://sagemaker-[PROJECT-NAME] --region [REGION_NAME] --profile [S3_AC
 
 ## Sync Data and Project Code Folders to S3
 
-You can use this tool to sync folders to S3: [aws_code/sync_folder_to_s3.py](aws_code/sync_folder_to_s3.py)
+### Sync Folder to S3
+
+```
+aws2 s3 sync --profile [S3_ACCESS_PROFILE] [LOCAL_DIR_PATH] [S3Uri]
+```
+
+### Upload file to S3
+
+```
+aws2 s3 cp --profile [S3_ACCESS_PROFILE] [LOCAL_FILE_PATH] [S3Uri]
+```
