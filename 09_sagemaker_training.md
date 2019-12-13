@@ -19,7 +19,7 @@ estimator = PyTorch(
     role=[SAGEMAKER_ROLE],
     train_instance_count=1,
     train_instance_type='ml.c4.xlarge',
-    source_dir='code',
+    source_dir='./code',
     framework_version='1.2.0',
     hyperparameters={
         'epochs': 5,
@@ -32,6 +32,21 @@ inputs = s3_input(
     s3_data='s3://sagemaker-vqs-sla/input/data/training/input'
 )
 estimator.fit({'training': inputs})
+```
+
+
+## What Happens If We Run `sm_train.py`?
+
+* Launch `train_instance_count=1` number of `ml.c4.xlarge` training instances 
+* Copy 's3://sagemaker-vqs-sla/input/data/training/input' into `os.environ['SM_CHANNEL_TRAINNING']` instances and reserve the subdirectories structure in the instances, where `os.environ['SM_CHANNEL_TRAINNING']` = `/opt/ml/input/data/training/input`.
+* Copy **source_dir ('./code')** from local to the instances. The entrypoint `cli_train.py` has to be included in `source_dir='./code'`
+* Run the following command in the launched instances:
+
+```
+python cli_train.py \
+    --epochs 5 \
+    --train-size 60 \
+    --validate-size 20
 ```
 
 **Model Training Script: `cli_train.py`**
