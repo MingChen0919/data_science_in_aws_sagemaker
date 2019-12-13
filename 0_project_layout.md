@@ -11,7 +11,7 @@ Add sub-directories into `Project_Folder`. The final layout looks like following
 ```
 Project_Folder
 ├── aws
-│   ├── code
+│   ├── sagemaker_code
 │   └── docker
 ├── code
 ├── input
@@ -38,7 +38,7 @@ Project_Folder
 * `input/data/testing`: testing data
 * `code`: machine learning project code
 * `input/config/hyperparameters.json`: hyperparameters for model tuning
-* `aws/code`: code for interacting with aws services, for example, launching sagemaker, transfering data from and to S3
+* `aws/sagemaker_code`: code for interacting with aws services, for example, launching sagemaker, transfering data from and to S3
 * `model`: store trained model
 
 
