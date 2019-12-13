@@ -32,15 +32,15 @@ Project_Folder
     └── output
 ```
 
-* **Raw data** in `./processing/input`
-* **Processed data** in `./processing/output`
-* **Cleaned data** for training in `./input/data/training/input`
-* **Training output** in `./input/data/training/output`
-* **Cleaned data for testing** in `./input/data/testing/input`
-* **Testing output** in `./input/data/testing/output`
-* **Trained model** in `./model`
-* **AWS services interaction code** in `./aws/code`
-* **Dockerfiles for building ECR containers** in `./aws/docker` 
+* `processing/input`: raw data
+* `processing/output`: processed data. this data should be ready to move to `input/data` for model training
+* `input/data/training`: training data
+* `input/data/testing`: testing data
+* `code`: machine learning project code
+* `input/config/hyperparameters.json`: hyperparameters for model tuning
+* `aws/code`: code for interacting with aws services, for example, launching sagemaker, transfering data from and to S3
+* `model`: store trained model
+
 
 The goal is to mimic the layout used by AWS Sagemaker
 
