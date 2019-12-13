@@ -94,7 +94,7 @@ Assuming all the paths are correct, Sagemaker will take care of the data transfe
 
 ## How the preprocessing script `.code/cli_parse_annotation_files.py` gets into the Docker container?
 
-When you specify `code='./code/cli_parse_annotation_files.py'` in **script_processor.run**, this code file is automatically uploaded to S3. Sagemaker will automatically creates a `ProcessingInput` object and transfer the file to `/opt/ml/processing/input/code`. Therefore, `/opt/ml/processing/input/code` is a reserved `ProcessingInput` **destination**. You should not use it.
+When you specify `code='./code/cli_parse_annotation_files.py'` in **script_processor.run**, this code file is automatically uploaded to S3. Sagemaker will automatically creates a `ProcessingInput` object to transfer the file to `/opt/ml/processing/input/code`. Therefore, `/opt/ml/processing/input/code` is a reserved `ProcessingInput` **destination**. You should not use it.
 
 
 ## `ProcessingInput`
