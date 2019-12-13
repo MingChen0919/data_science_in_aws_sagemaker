@@ -4,15 +4,38 @@ Create a project folder at your local computer to store everything related to yo
 
 `mkdir Project_Folder && cd Project_Folder`
 
+* **Create subdirectories**
+
+```
+mkdir PROJECT_FOLDER && cd PROJECT_FOLDER && \
+mkdir -p \
+    aws/docker \
+    aws/sagemaker_code \
+    processing/input \
+    processing/output \
+    code \
+    input/config \
+    input/config \
+    input/data/training/input \
+    input/data/training/output \
+    input/data/validation/input \
+    input/data/validation/output \
+    input/data/testing/input \
+    input/data/testing/output \
+    model \
+    output && \
+touch input/config/hyperparameters.json input/config/resourceConfig.json
+```
+
 # 2. Create sub-directories
 
 Add sub-directories into `Project_Folder`. The final layout looks like following:
 
 ```
-Project_Folder
+PROJECT_FOLDER
 ├── aws
-│   ├── sagemaker_code
-│   └── docker
+│   ├── docker
+│   └── sagemaker_code
 ├── code
 ├── input
 │   ├── config
@@ -22,7 +45,10 @@ Project_Folder
 │       ├── testing
 │       │   ├── input
 │       │   └── output
-│       └── training
+│       ├── training
+│       │   ├── input
+│       │   └── output
+│       └── validation
 │           ├── input
 │           └── output
 ├── model
