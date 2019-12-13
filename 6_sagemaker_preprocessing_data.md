@@ -73,6 +73,29 @@ script_processor.run(
 
 ```
 
+## How Sagemaker Works?
+
+The above code simply translate your script into one command line code and runs it in the specified Docker container in a specified EC2 instance
+
+**command=['python3', '-v'] + code + arguments**
+
+The full version is:
+
+```
+python3 -v /opt/ml/processing/input/code/cli_parse_annotation_files.py \
+    --images_dir', '/opt/ml/processing/input/images_dir \
+    --annotations_dir', '/opt/ml/processing/input/annotations_dir \
+    --annotation_out', '/opt/ml/processing/output/annotation.json 
+```
+
+
+Assuming all the paths are correct, Sagemaker will take care of the data transfer between the Docker container and S3.
+
+
+## How the preprocessing script `.code/cli_parse_annotation_files.py` gets into the Docker container?
+
+When you specify `code='./code/cli_parse_annotation_files.py'` in **script_processor.run**, this code file is automatically uploaded to S3. Sagemaker will automatically creates a `ProcessingInput` object and transfer the file to `/opt/ml/processing/input/code`. Therefore, `/opt/ml/processing/input/code` is a reserved `ProcessingInput` **destination**. You should not use it.
+
 
 ## `ProcessingInput`
 
