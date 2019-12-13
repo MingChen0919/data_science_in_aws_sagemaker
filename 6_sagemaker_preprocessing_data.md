@@ -55,7 +55,7 @@ outputs = [
     ProcessingOutput(
         output_name='annotation.json',
         source='/opt/ml/processing/output',
-        destination=s3://sagemaker-vqs-sla/preprocessing/output,
+        destination='s3://sagemaker-vqs-sla/processing/output',
     )
 ]
 
