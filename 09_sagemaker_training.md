@@ -34,7 +34,6 @@ inputs = s3_input(
 estimator.fit({'training': inputs})
 ```
 
-
 ## What Happens If We Run `sm_train.py`?
 
 * Launch `train_instance_count=1` number of `ml.c4.xlarge` training instances 
@@ -48,6 +47,10 @@ python cli_train.py \
     --train-size 60 \
     --validate-size 20
 ```
+
+## What If Third Party Libraries Needed?
+
+We add an `requirements.txt` file to the `source_dir` (in this example it is `./code`).
 
 **Model Training Script: `cli_train.py`**
 
