@@ -71,8 +71,7 @@ RUN /usr/bin/pip3 install --upgrade --force-reinstall pip==9.0.3 && \
 
 ENV PYTHONUNBUFFERED=TRUE
 ENV PYTHONDONTWRITEBYTECODE=TRUE
-ENV PATH="/opt/program:${PATH}"
 
+RUN pip install sagemaker-containers
+ENTRYPOINT ["python3"]
 
-RUN ld -v
-RUN ldd --version
