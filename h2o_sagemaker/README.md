@@ -3,20 +3,45 @@
 ## Prepare a Docker image in AWS ECR
 ### Build an H2O Docker image
 
-H2O has created such a Dockerfile which we can use directly. Download the Dockerfile and build the image directly from it.
+Build a Docker image using this [Dockerfile](Dockerfile)
 
 ```
-wget https://raw.githubusercontent.com/h2oai/h2o3-sagemaker/master/automl/Dockerfile
 docker build -t h2o:base .
 ```
 
-**Issue:**
-I was unable to build a Docker image with this Dockerfile. The error message I got is:
-
-```
-E: Package 'oracle-java8-installer' has no installation candidate
-The command '/bin/sh -c echo 'DPkg::Post-Invoke {"/bin/rm -f /var/cache/apt/archives/*.deb || true";};' | tee /etc/apt/apt.conf.d/no-cache &&   echo "deb http://mirror.math.princeton.edu/pub/ubuntu xenial main universe" >> /etc/apt/sources.list &&   apt-get update -q -y &&   apt-get dist-upgrade -y &&   apt-get clean &&   rm -rf /var/cache/apt/* &&   DEBIAN_FRONTEND=noninteractive apt-get install -y wget unzip python-pip python-sklearn python-pandas python-numpy python-matplotlib software-properties-common python-software-properties &&   add-apt-repository -y ppa:webupd8team/java &&   apt-get update -q &&   echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections &&   echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections &&   DEBIAN_FRONTEND=noninteractive apt-get install -y oracle-java8-installer &&   apt-get clean' returned a non-zero code: 100
-```
-
-
 ### Push image to ECR
+
+* **Create an ECR repository**
+
+```
+aws ecr create-repository \
+  --repository-name h2o \
+  --profile ming_ecr \
+  --region us-east-2
+```
+
+* **Authenticate Docker to use ECR registry**
+
+```
+aws2 ecr get-login --region us-east-2 --no-include-email --profile ming_ecr
+```
+
+The output of the above command is the command to login Docker, which should look like this:
+
+```
+docker login -u AWS -p [PASSWORD] https://[AWS_ACCOUNT_ID].dkr.ecr.us-east-1.amazonaws.com
+```
+
+The the output as a command to authenticate Docker
+
+* **Tag image to ECR RepositoryUri**
+
+```
+docker tag h2o:base [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/h2o:base
+```
+
+* **Push image to ECR**
+
+```
+docker push [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/h2o:base
+```
