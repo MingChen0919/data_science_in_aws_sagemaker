@@ -1,0 +1,14 @@
+# ignore all paths
+*
+
+# the line below will allow rules being applied to subdirectories
+!*/
+
+# ignore venv folder. this line has to be after '!*/', otherwise the venv/ folder will be tracked, but only the folder.
+venv/
+*.ipynb_checkpoints/
+
+# and do not ignore paths ending with ".py" (keep all python files)
+!.gitignore
+!*.py
+!*.md
