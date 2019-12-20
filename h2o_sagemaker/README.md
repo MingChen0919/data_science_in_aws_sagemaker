@@ -5,6 +5,10 @@
 
 Build a Docker image using this [Dockerfile](Dockerfile)
 
+```
+docker build -t h2o:base .
+```
+
 ### Push image to ECR
 
 * **Create an ECR repository**
@@ -29,3 +33,15 @@ docker login -u AWS -p [PASSWORD] https://[AWS_ACCOUNT_ID].dkr.ecr.us-east-1.ama
 ```
 
 The the output as a command to authenticate Docker
+
+* **Tag image to ECR RepositoryUri**
+
+```
+docker tag h2o:base [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/h2o:base
+```
+
+* **Push image to ECR**
+
+```
+docker push [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/h2o:base
+```
