@@ -45,3 +45,17 @@ docker tag h2o:base [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/h2o:base
 ```
 docker push [AWS_ACCOUNT_ID].dkr.ecr.us-east-2.amazonaws.com/h2o:base
 ```
+
+## Create S3 Bucket
+
+Regions outside of `us-east-1` require the appropriate **LocationConstraint** 
+to be specified in order to create the bucket in the desired region
+
+```
+aws s3api create-bucket \
+    --acl private 
+    --profile ming_s3 
+    --region us-east-2 
+    --bucket sagemaker-h2o-experiments 
+    --create-bucket-configuration LocationConstraint=us-east-2
+```
