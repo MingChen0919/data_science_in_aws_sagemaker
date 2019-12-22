@@ -12,7 +12,7 @@ sm_session = sagemaker.Session(sagemaker_client=sm_client)
 script_processor = ScriptProcessor(
     command=['python3', '-v'],
     image_uri='261319253434.dkr.ecr.us-east-2.amazonaws.com/h2o:base',
-    role='arn:aws:iam::261319253434:role/AmazonSageMakerFullAccess-Default',
+    role='[SAGEMAKER_ROLE]',
     instance_type='ml.m5.xlarge',
     instance_count=1,
     sagemaker_session=sm_session,
